@@ -16,6 +16,14 @@
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+        <style>
+            section .chart {
+                background: none !important;
+                border: none !important;
+            }
+        </style>
+
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -42,6 +50,21 @@
                         </small>
 					</p>
 				</section>
+
+                <section>
+                    <section>
+                        <h2>발표자 소개</h2>
+                    </section>
+                    <section>
+                        <p>TBD</p>
+                    </section>
+                    <section>
+                        <p>TBD</p>
+                    </section>
+                    <section>
+                        <p>TBD</p>
+                    </section>
+                </section>
 
 				<section>
                     <section>
@@ -73,6 +96,7 @@
                         <p><a href="http://www.slideshare.net/awskr">AWSKRUG Slideshare</a></p>
                         </ul> 
                     </section>
+                    <section data-background="/images/awskrug-slides.jpg"></section>
                     <section>
                         <h2>스터디 지원</h2>
                         <p>AWS에 관심이 높아 입문자가 많아요!</p>
@@ -83,336 +107,295 @@
                         <p>AWS Korea와 함께하는 기술 세미나</p>
                         <p>AWS 신제품 소개, Best Practice 소개 등</p>
                     </section>
-                    <section data-background="http://localhost:8000/images/awskrug-slides.jpg">
+                    <section>
+                        <h2><a href="http://awskr.org">awskr.org</a></h2> 
+                    </section>
+				</section>
+
+                <section>
+                    <section>
+                        <h2>BEAT</h2>
                     </section>
                     <section>
-                        <h2>지난 4년간 30여개의 발표</h2>
-                        <p><a href="http://awskr.org">awskr.org</a></p> 
+                        <p>TBD</p>
                     </section>
-				</section>
+                    <section>
+                        <p>TBD</p>
+                    </section>
+                    <section>
+                        <p>TBD</p>
+                    </section>
+                </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
+                <section>                    
+                    <h2>비트가 생각하는 AWS 이용의 원칙</h2>
+                    <h3><span class="fragment highlight-blue">적절한 규모</span>의 자원을 이용한다.</h3>
+                    <h3><span class="fragment highlight-green">필요한 만큼</span>의 자원만 이용한다.</h3>
+                </section>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+                <section>
+                    <section>
+                        <h2>적절한 규모의 자원을 이용한다</h2>
+                        <p>
+                        EC2 Instance들의 가격폭은 <em>800</em>배</p>
+                        <p>
+                        적절한 Instance Type을 선택하는 것이 매우 중요.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>
+                            Class (t,m,c,g,r,i,d) 특성 차이
+                        </h2>
+                        <p>
+                            웹서버와, Cache 서버, DB서버에 적절한 인스턴스가 다름
+                        </p>
+                        <p>
+                            가급적 항상 최신 세대를 사용하는게 가격:성능에 유리
+                        </p>
+                        <p>
+                        단, <em>C3/C4, M3/M4</em>의 경우 한가지 추가 고려 사항
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Instance-Storage vs EBS</h2>
+                        <p>
+                        C/M의 경우 3세대까지는 Instance-Storage가 <br />제공되지만, 
+                        4세대 부터는 EBS만 제공됨
+                        </p>
+                        <p>
+                           3세대에 제공되는 Instance-Storage는 1~2개의 <em>SSD</em>
+                        </p>
+                    </section>
+                    <section>
+                        <p>Instance-Storage는 EBS 대비 <a href="https://gist.github.com/ktheory/3c3616fca42a3716346b"><em>7~10</em>배의 성능 우수</a></p>
+                        <p>영속성이 없는 대신 성능과 비용이 우수</p>
+                        <p>복제등으로 보완할 수 있는 경우, <br />I/O 성능이 중요하다면 3세대 사용 고려</p>
+                    </section>
+                    <section>
+                        <h2>T2 Instance</h2>
+                        <p>
+                            <em>Burst</em>가 없거나, 혹은 예측가능하게 있는 서비스에 적용
+                            <p>CloudWatch등을 통한 CPU 사용률의 관측으로 적절한 T2 Instance로 전환시, 
+                            <em>2~30%</em>수준의 비용 절감 가능
+                            </p>
+                            <p>특히 <em>M3/M4</em> Instance에 대해 중점 검토</p>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Lambda</h2>
+                        <p>Image Resize, Encoding 같은 작업은 Instance가 항상 대기할 필요가 없는 작업</p>
+                        <p>Lambda는 <em>100ms</em> 단위로 과금하기 때문에 필요시에만 운영하여 비용 대폭 감소</p>
+                    </section>
+                </section>
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+                <section>
+                    <section>
+                        <h2>필요한 만큼의 자원만 이용한다</h2>
+                    </section>
+                    <section data-background="/images/traffics.png"></section>
+                    <section>
+                        <p>
+                            <img data-src="/images/traffic-waste.jpg" />
+                        </p>
+                        <p>
+                            항상 수요(Load)에 적절한 자원을 이용할 수 있어야 한다
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img data-src="/images/traffic-autoscale.jpg">
+                        </p>
+                        <p>
+                            <em>AutoScale</em>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>AutoScale</h2>
+                        <p>지정한 조건에 따라 Instance의 수를 자동으로 조정</p>
+                        <p>Cloudwatch Alarm, Scheduled Policy</p>
+                        <p><em>Spot Instance</em> 적용 가능</p>
+                    </section>
+                </section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+                <section>
+                    <section>
+                        <h2>AutoScale + Spot Instance</h2>
+                        <em>EC2 비용 감소의 핵심</em>
+                    </section>
+                    <section>
+                        <h2>Spot Instance</h2>
+                        <p>
+                            <img src="/images/describe-spot-instance.png" width="380px" height="300px" />
+                        </p>
+                        <p>
+                            EC2의 <em>유휴 자원</em>을 Availability Zone 별로 <strong>경매</strong>를 통해 이용
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <em>경매</em>를 통해 이용하기 때문에, <br />Instance 생명 주기를 
+                            임의로 통제할 수 없음
+                        </p>
+                        <p>
+                            단, On-Demand 대비 최대 <em>90%</em> 정도까지 저렴하게 이용
+                        </p>
+                    </section>
+                    <section>
+                        <h2>입찰(Bid) 전략</h2>
+                        <p>어떻게 입찰해야 가장 효율적인가?</p>
+                    </section>
+                    <section>
+                        <p>
+                            <img src="/images/spot-instance-diff-az.png" />
+                        </p>
+                        <p><em>Availability Zone</em>마다 가격이 다르다</p>
+                    </section>
+                    <section>
+                        <p><img src="/images/spot-instance-frequency.png"></p>
+                        <p><em>Instance Type</em>마다 가격이 다르다</p>
+                    </section>
+                    <section>
+                        <p><img src="/images/spot-instance-ph-1m.png"></p>
+                        <p>특정 Spike를 제외하면 On-Demand 보다 가격이 낮게 유지</p>
+                    </section>
+                    <section>
+                        <p><em>BEAT</em>에서는, On-Demand 가격의 <strong>100%</strong>로 입찰</p>
+                        <p>입찰가는 최고 가격이므로, 해당 시점의 최저가에 낙찰</p>
+                    </section>
+                    <section>
+                        <h2>Spot이 없으면?</h2>
+                        <p>경매 가격이 너무 높거나, 유휴 자원이 없는 경<br />Spot Instance를 확보하지 못하게 된다.</p>
+                        <p>안정적인 서비스 운영을 위해서 이럴 경우 어떻게 해야 할까?</p>
+                    </section>
+                    <section>
+                        <h2>AutoScale + Spot Instance</h2>
+                    </section>
+                    <section>
+                        <p>
+                            하나의 ELB에 2개의 Autoscale group을 운영
+                        </p>
+                        <p>
+                            각 On-Demand(RI)와 Spot Instance로 설정된 그룹
+                        </p>
+                        <p>
+                            <em>CPU</em>혹은 <em>Latency</em>를 기준으로 Scale In/Out 
+                        </p>
+                    </section>
+                    <section data-background="/images/beat-ag.png" data-background-size="contain"></section>
+                    <section>
+                        <p>
+                            <em>On-Demand</em> Group은 빠르게 Scale-In, 늦게 Scale-Out
+                        </p>
+                        <p>
+                            <em>Spot</em> Group은 빠르게 Scale-Out, 늦게 Scale-In
+                        </p>
+                    </section>
+                    <section>
+                        <h3>CPU 기준</h3>
+                        <table>
+                            <thead>
+                                <th></th>
+                                <th>Scale-In</th>
+                                <th>Scale-Out</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Spot</td>
+                                    <td>20%/1hr</td>
+                                    <td>40%/5min</td>
+                                </tr>
+                                <tr>
+                                    <td>On-Demand</td>
+                                    <td>40%/10min</td>
+                                    <td>80%/5min</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="/images/ag-chart-1.png" />
+                        </p>
+                        <p>
+                            시간대별 Traffic
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="/images/ag-chart-2.png" />
+                        </p>
+                        <p>
+                            Traffic 최저점 대비 5~10% 정도를 On-Deamnd 
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="/images/ag-chart-3.png" />
+                        </p>
+                        <p>
+                            나머지 부분을 5~10% 정도 여유로 Spot Instance
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="/images/ag-chart-4.png" />
+                        </p>
+                        <p>
+                            만약 원하는 만큼 Spot Instance 확보가 안된경우
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="/images/ag-chart-5.png" />
+                        </p>
+                        <p>
+                            Scaling Policy에 의해 On-Deamnd가 Scale-Out
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Scheduled Policy</h2>
+                        <p>
+                        서비스 Traffic pattern에 따라, <br />시간대 별로 시간대 별로 Minimum을 조정
+                        </p>
+                    </section>
+                    <section>
+                        <p>Peak 시간대 Spot: 40~ On-Deamdn: 10~</p>
+                        <p>Off 시간대 Spot: 10~ On-Deamnd: 2~</p>
+                    </section>
+                    <section>
+                        <p>
+                            <img src="/images/ag-scheduled-warmup.png">
+                        </p>
+                        <p>혹은, 매일 Peak 시작전에 사전 Warm-Up에 이용</p>
+                    </section>
+                </section>
 
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
 
-						```
-						<section data-markdown>
-						  ## Markdown support
+                <section>
+                    <section>
+                        <h2>Wrap Up</h2>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>적절한 Instance Type을 사용</li>
+                            <li>같은 EC2 사용에서도 성능:비용을 고려</li>
+                            <li>AutoScaling을 통한 적극적인 Spot-Instance 사용</li>
+                        </ul>
+                        <h2></h2>
+                    </section>
+                </section>
 
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
+                <section style="text-align:left;">
+                    <h2>ありがとうございます!</h2>
+                    <p>
+                        - Q&A <br />
+                        - <a href="http://awskr.org">AWSKRUG</a> <br />
+                        - kkungkkung @ gmail.com 
+                    </p>
+                </section>
 
 			</div>
-
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
@@ -440,7 +423,6 @@ Reveal.addEventListener( 'customevent', function() {
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
-
 		</script>
 
 	</body>
