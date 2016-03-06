@@ -55,8 +55,19 @@
                     <section>
                         <h2>発表者の紹介</h2>
                     </section>
-                    <section>
-                        <p>TBD</p>
+                    <section style="-webkit-column-count: 2;">
+                        <div>
+                                <img data-src="images/kkung.png" height="400px" />
+                        </div>
+                        <div>
+                            <ul>
+                                <li><p>Minyoung Jeong(鄭敏泳)</p></li>
+                                <li><p>CTO, The Beatpacking Company</p></li>
+                                <li><p>Founder, AWSKRUG</p></li>
+                                <li><p>AWS Community Hero</p></li>
+                                <li><p>Love <em>Python</em>, <em>Ruby</em></p></li>
+                            </ul>
+                        </div>
                     </section>
                     <section>
                         <p>TBD</p>
@@ -117,16 +128,78 @@
                         <h2>BEAT</h2>
                     </section>
                     <section>
-                        <p>TBD</p>
+                        <h2>Ad-Supported Radio</h2>
+                        <p><em>대한민국 최초</em></p>
+                        <p>2014년 4월 Tokyo Region에서 런칭 </p>
+                        <p>600만 가입자, DAU 50만, MAU 140만</p>
+                        <p><em>Series B</em></p>
+                    </section>
+                    <section data-background="images/beat_growth.jpg" data-background-size="contain"></section>
+                    <section>
+                        <p>아쉽게도 아직 일본에서는 불가T_T</p>
                     </section>
                     <section>
-                        <p>TBD</p>
+                        <h3>미리 하는  Q&amp;A</h3>
+                        <p>왜 일본을 선택하였나?</p>
                     </section>
                     <section>
-                        <p>TBD</p>
+                        <p><em>AWS를 쓰고 싶었어요! </em></p>
+                        <p class="fragment">
+                            당시 한국은 Co-location 기반의 서비스가 대부분
+                        </p>
+                        <p class="fragment">
+                            <em>API</em>를 통한 자동화된 관리와 여러 서비스를 원했기 때문에 결정
+                        </p>
+                    </section>
+                    <section>
+                        <h3>미리 하는  Q&amp;A</h3>
+                        <p>Tokyo Region에서 서비스 하는데 문제 없었나?</p>
+                    </section>
+                    <section>
+                        <p>일반적으로, 한국<->일본 Latency는 <em>50~80</em>ms 정도</p>
+                        <p>보통의 Mobile App에서 허용 가능한 Latency</p>
+                        <p>좀 더 나은 사용자 경험을 위해, <em>HTTP KeepAlive</em>, <em>GZip</em>등 활용</p>
+                    </section>
+                    <section>
+                        <p>
+                            <img data-src="images/announce_cf_edge.png" /> <br />
+                            <em>2015. 01. 26</em> CloudFront Edge Launch
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Cloudfront 적극 활용</h3>
+                        <p>Static resouce외에도 필요시 API도 Cloudfront를 통해 제공</p>
+                        <p>Cloudfront &amp; S3를 통해 관리되는 Network으로 컨텐츠 전송</p>
+                    </section>
+                    <section>
+                        <p><img data-src="images/alias.png" /></p>
+                        <p>Cloudfront edge는 Seoul에 있지만 Route53 edge는 없음</p>
+                        <p>CNAME 대신 <em>ALIAS</em> 활용</p>
+                    </section>
+                    <section>
+                        <p>하지만....</p>
+                        <p class="fragment">일본은 유명 서비스들(Twitter, Facebook 등)의 한국 서비스 거점</p>
+                        <p class="fragment">인터넷 피크 시간(PM 10~AM 01)에 해저케이블 대역폭 이슈</p>
+                    </section>
+                    <section data-background="images/submarine_cable_map.png"></section>
+                    <section>
+                        <p>다행히, AWSKR이 한국 ISP들과 협력하여 네트워크 경로 관리</p>
+                        <p>2016년 현재, 상당히 준수하게 관리되는 중</p>
+                    </section>
+                    <section>
+                        <h3>미리 하는  Q&amp;A</h3>
+                        <p>Seoul Region으로 옮길 계획?</p>
+                    </section>
+                    <section>
+                        <p>아직 BEAT에서 필수적으로 쓰는 서비스 일부가 준비중</p>
+                        <p>특히 <em>Spot Instance</em>가 부재</p>
+                    </section>
+                    <section>
+                        <p>Tokyo와 병행하여 사용 예정</p>
+                        <p>일부 <em>API</em>, <em>Cache</em>등의 이전 예정</p>
+                        <p><em>ap-northeast-1 <-> ap-northeast-2</em>간 네트워크 이슈</p>
                     </section>
                 </section>
-
 
                 <section>
                     <h2>BEATが考えたAWS利用の原則</h2>
@@ -173,7 +246,10 @@
                         <p>データ複製などで永続性の問題を補完できる場合、<br />I/O性能が大事であれば第３世代の使用を考慮する必要がある</p>
                     </section>
                     <section>
-                        <h2>T2インスタンス</h2>
+                        <p><img data-src="images/cpu_spike.png" /></p>
+                    </section>
+                    <section>
+												<h2>T2インスタンス</h2>
                         <p>
                             <em>Burst</em>がない、または予測可能なサービスに適用
                             <p>CloudWatchなどを通じたCPU使用率モニタリングで適切なT2インスタンスへの転換を実施し、
@@ -194,31 +270,6 @@
                         <h2>必要最低限のリソースのみ利用する。</h2>
                     </section>
                     <section data-background="images/traffics.png"></section>
-                    <section>
-                        <p>
-                            <img data-src="images/traffic-waste.jpg" />
-                        </p>
-                        <p>
-                            いつも需要(Load)に対して適切なリソースを利用しなければならない
-                        </p>
-                    </section>
-                    <section>
-                        <p>
-                            <img data-src="images/traffic-autoscale.jpg">
-                        </p>
-                        <p>
-                            <em>AutoScale</em>
-                        </p>
-                    </section>
-                    <section>
-                        <h2>AutoScale</h2>
-                        <p>指定した条件によってInstanceの数を自動的に調整</p>
-                        <p>Cloudwatch Alarm, Scheduled Policy</p>
-                        <p><em>Spot Instance</em>適用可能</p>
-                    </section>
-                </section>
-
-                <section>
                     <section>
                         <h2>AutoScale + Spot Instance</h2>
                         <em>EC2コストダウンの切り札</em>
@@ -256,6 +307,9 @@
                         <p><em>Instance Type</em>마다 가격이 다르다</p>
                     </section>
                     <section>
+                        <p>특히, <em>ap-northeast-1</em>에서 어떻게 입찰해야 할까? </p>
+                    </section>
+                    <section>
                         <p><img src="images/spot-instance-ph-1m.png"></p>
                         <p>특정 Spike를 제외하면 On-Demand 보다 가격이 낮게 유지</p>
                     </section>
@@ -263,6 +317,12 @@
                         <p><em>BEAT</em>에서는, On-Demand 가격의 <strong>100%</strong>로 입찰</p>
                         <p>입찰가는 최고 가격이므로, 해당 시점의 최저가에 낙찰</p>
                     </section>
+                    <section>
+                        <p>발표하기 두렵지만...(^^)</p>
+                        <p>사실 Tokyo에서 <em>Spot Instance</em>는 경쟁이 치열하지 않은 편</p>
+                        <p>활용의 폭이 현재까진 매우 넓음</p>
+                    </section>
+
                     <section>
                         <h2>Spot이 없으면?</h2>
                         <p>경매 가격이 너무 높거나, 유휴 자원이 없는 경<br />Spot Instance를 확보하지 못하게 된다.</p>
