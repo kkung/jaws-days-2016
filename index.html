@@ -77,6 +77,17 @@
                     </section>
                 </section>
 
+                <section>
+                    <section>
+                        <h2>오늘 다루는 부분</h2>
+                    </section>
+                    <section>
+                        <p>한국 사용자 모임 소개</p>
+                        <p>한국에서 Tokyo Region 사용하기</p>
+                        <p>어떻게 좀 더 저렴하게 사용할 것인가</p>
+                    </section>
+                </section>
+
 				<section>
                     <section>
                         <h2>アマゾンウェブサービス　韓国ユーザ会</h2>
@@ -131,7 +142,7 @@
                         <h2>Ad-Supported Radio</h2>
                         <p><em>대한민국 최초</em></p>
                         <p>2014년 4월 Tokyo Region에서 런칭 </p>
-                        <p>600만 가입자, DAU 50만, MAU 140만</p>
+                        <p>660만 가입자, DAU 40만, MAU 160만</p>
                         <p><em>Series B</em></p>
                     </section>
                     <section data-background="images/beat_growth.jpg" data-background-size="contain"></section>
@@ -191,78 +202,23 @@
                         <p>Seoul Region으로 옮길 계획?</p>
                     </section>
                     <section>
-                        <p>아직 BEAT에서 필수적으로 쓰는 서비스 일부가 준비중</p>
+                        <p>한국에서 Seoul Region과의 Latency는 <em>&lt;10ms</em></p>
+                        <p><em>ap-northeast-1 <-> ap-northeast-2</em>간 관리되는 네트워크</p>
+                    </section>
+                    <section>
+                        <p>BEAT에서 필수적으로 쓰는 서비스 일부가 준비중</p>
                         <p>특히 <em>Spot Instance</em>가 부재</p>
                     </section>
                     <section>
                         <p>Tokyo와 병행하여 사용 예정</p>
-                        <p>일부 <em>API</em>, <em>Cache</em>등의 이전 예정</p>
-                        <p><em>ap-northeast-1 <-> ap-northeast-2</em>간 네트워크 이슈</p>
+                        <p>일부 <em>API</em>, <em>Cache</em>등의 기능 확장 예정</p>
                     </section>
                 </section>
 
                 <section>
                     <h2>BEATが考えたAWS利用の原則</h2>
-                    <h3><span class="fragment highlight-blue">適切な規模</span>のリソースを利用する</h3>
+                    <h3>適切な規模のリソースを利用する</h3>
                     <h3><span class="fragment highlight-green">必要最低限</span>のリソースのみ利用する</h3>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>適切か規模のリソースを利用する</h2>
-                        <p>
-                        EC2 インスタンスの値段の差は<em>800</em>倍</p>
-                        <p>
-                        適切なインスタンス Typeを選択することがすごく大事
-                        </p>
-                    </section>
-                    <section>
-                        <h2>
-                            Class (t,m,c,g,r,i,d) の特性
-                        </h2>
-                        <p>
-                            ウェブサーバ、Cacheサーバ、DBサーバに対し、異なるインスタンスタイプが必要
-                        </p>
-                        <p>
-                            できれば、最新のインスタンスタイプを使うのがコストパフォマンスに有利
-                        </p>
-                        <p>
-                        ただし、<em>C3/C4, M3/M4</em>の場合、もう一つの追加考慮事項が存在する
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Instance-Storage vs EBS</h2>
-                        <p>
-                        C/Mの場合、第３世代まではInstance-Storageが<br />提供されるが、
-                        第４世代からはEBSだけ提供される
-                        </p>
-                        <p>
-                           第３世帯に提供されるInstance-Storageは1~2個の<em>SSD</em>
-                        </p>
-                    </section>
-                    <section>
-                        <p>Instance-StorageはEBS対比<a href="https://gist.github.com/ktheory/3c3616fca42a3716346b"><em>7~10</em>倍の性能</a></p>
-                        <p>永続性がない代わりに性能と費用が抜群</p>
-                        <p>データ複製などで永続性の問題を補完できる場合、<br />I/O性能が大事であれば第３世代の使用を考慮する必要がある</p>
-                    </section>
-                    <section>
-                        <p><img data-src="images/cpu_spike.png" /></p>
-                    </section>
-                    <section>
-												<h2>T2インスタンス</h2>
-                        <p>
-                            <em>Burst</em>がない、または予測可能なサービスに適用
-                            <p>CloudWatchなどを通じたCPU使用率モニタリングで適切なT2インスタンスへの転換を実施し、
-                            <em>2~30%</em>程度のコストダウンが可能
-                            </p>
-                            <p>特に<em>M3/M4</em>インスタンスに対して重点的に検討</p>
-                        </p>
-                    </section>
-                    <section>
-                        <h2>Lambda</h2>
-                        <p>Image Resize, Encodingのような作業はインスタンスが通常待機する必要がない作業</p>
-                        <p>Lambdaは<em>100ms</em>単位で課金するため必要時のみ運用すれば大幅のコストダウンが可能</p>
-                    </section>
                 </section>
 
                 <section>
@@ -294,65 +250,65 @@
                     </section>
                     <section>
                         <h2>入札(Bid)戦力</h2>
-                        <p>어떻게 입찰해야 가장 효율적인가?</p>
+                        <p>どう入札すれば一番効率的なのか？</p>
                     </section>
                     <section>
                         <p>
                             <img src="images/spot-instance-diff-az.png" />
                         </p>
-                        <p><em>Availability Zone</em>마다 가격이 다르다</p>
+                        <p><em>Availability Zone</em>ごとに値段が異なる</p>
                     </section>
                     <section>
                         <p><img src="images/spot-instance-frequency.png"></p>
-                        <p><em>Instance Type</em>마다 가격이 다르다</p>
+                        <p><em>Instance Type</em>ごとに値段が異なる</p>
                     </section>
                     <section>
-                        <p>특히, <em>ap-northeast-1</em>에서 어떻게 입찰해야 할까? </p>
+                        <p>특히, <em>ap-northeast-1</em>でどう入札すればいいのか？ </p>
                     </section>
                     <section>
                         <p><img src="images/spot-instance-ph-1m.png"></p>
-                        <p>특정 Spike를 제외하면 On-Demand 보다 가격이 낮게 유지</p>
+                        <p>特定Spikeを除いたらOn-Demandより安価で利用できる</p>
                     </section>
                     <section>
-                        <p><em>BEAT</em>에서는, On-Demand 가격의 <strong>100%</strong>로 입찰</p>
-                        <p>입찰가는 최고 가격이므로, 해당 시점의 최저가에 낙찰</p>
+                        <p><em>BEAT</em>では、On-Demand価格の<strong>100%</strong>で入札</p>
+                        <p>入札価は最高価格なので、その時点の最低価で落札</p>
                     </section>
                     <section>
-                        <p>발표하기 두렵지만...(^^)</p>
-                        <p>사실 Tokyo에서 <em>Spot Instance</em>는 경쟁이 치열하지 않은 편</p>
-                        <p>활용의 폭이 현재까진 매우 넓음</p>
+                        <p>公開したくないけと…(^^)</p>
+                        <p>実はTokyoリージョンの<em>Spot Instance</em>は競争が激しくない</p>
+                        <p>今までは活用の幅がかなり広い</p>
                     </section>
 
                     <section>
-                        <h2>Spot이 없으면?</h2>
-                        <p>경매 가격이 너무 높거나, 유휴 자원이 없는 경<br />Spot Instance를 확보하지 못하게 된다.</p>
-                        <p>안정적인 서비스 운영을 위해서 이럴 경우 어떻게 해야 할까?</p>
+                        <h2>Spotがなかったら？</h2>
+                        <p>競売の価格が高すぎるか、遊休資源がない場合<br />Spot Instanceの確保ができない</p>
+                        <p>安定的なサービス運営のためにこの場合どうすればよいのか?</p>
                     </section>
                     <section>
                         <h2>AutoScale + Spot Instance</h2>
                     </section>
                     <section>
                         <p>
-                            하나의 ELB에 2개의 Autoscale group을 운영
+                            一つのELBに２個のAutoscale groupを運営
                         </p>
                         <p>
-                            각 On-Demand(RI)와 Spot Instance로 설정된 그룹
+                            各グループはOn-Demand(RI)とSpot Instanceで設定される
                         </p>
                         <p>
-                            <em>CPU</em>혹은 <em>Latency</em>를 기준으로 Scale In/Out
+                            <em>CPU</em>または<em>Latency</em>を基準にてScale In/Out
                         </p>
                     </section>
                     <section data-background="images/beat-ag.png" data-background-size="contain"></section>
                     <section>
                         <p>
-                            <em>On-Demand</em> Group은 빠르게 Scale-In, 늦게 Scale-Out
+                            <em>On-Demand</em> Groupは早いScale-In、遅いScale-Out
                         </p>
                         <p>
-                            <em>Spot</em> Group은 빠르게 Scale-Out, 늦게 Scale-In
+                            <em>Spot</em> Groupは早いScale-Out、遅いScale-In
                         </p>
                     </section>
                     <section>
-                        <h3>CPU 기준</h3>
+                        <h3>CPU 基準</h3>
                         <table>
                             <thead>
                                 <th></th>
@@ -378,7 +334,7 @@
                             <img class="chart" data-src="images/ag-chart-1.png" />
                         </p>
                         <p>
-                            시간대별 Traffic
+                            時間帯別Traffic
                         </p>
                     </section>
                     <section>
@@ -386,7 +342,7 @@
                             <img class="chart" data-src="images/ag-chart-2.png" />
                         </p>
                         <p>
-                            Traffic 최저점 대비 5~10% 정도를 On-Deamnd
+                            Traffic最低点対比5~10%程をOn-Deamnd
                         </p>
                     </section>
                     <section>
@@ -394,7 +350,7 @@
                             <img class="chart" data-src="images/ag-chart-3.png" />
                         </p>
                         <p>
-                            나머지 부분을 5~10% 정도 여유로 Spot Instance
+                            他の部分を5~10%程度余裕でSpot Instance
                         </p>
                     </section>
                     <section>
@@ -402,7 +358,7 @@
                             <img class="chart" data-src="images/ag-chart-4.png" />
                         </p>
                         <p>
-                            만약 원하는 만큼 Spot Instance 확보가 안된경우
+                            もし、必要な分のSpot Instanceの確保が出来なかった場合
                         </p>
                     </section>
                     <section>
@@ -410,24 +366,24 @@
                             <img class="chart" data-src="images/ag-chart-5.png" />
                         </p>
                         <p>
-                            Scaling Policy에 의해 On-Deamnd가 Scale-Out
+                            Scaling PolicyによってOn-DeamndがScale-Out
                         </p>
                     </section>
                     <section>
                         <h2>Scheduled Policy</h2>
                         <p>
-                        서비스 Traffic pattern에 따라, <br />시간대 별로 시간대 별로 Minimum을 조정
+                        サービスTraffic patternによって、<br />時間帯別にMinimumを調整
                         </p>
                     </section>
                     <section>
-                        <p>Peak 시간대 Spot: 40~ On-Deamdn: 10~</p>
-                        <p>Off 시간대 Spot: 10~ On-Deamnd: 2~</p>
+                        <p>Peak時間帯のSpot: 40~ On-Deamdn: 10~</p>
+                        <p>Off時間帯のSpot: 10~ On-Deamnd: 2~</p>
                     </section>
                     <section>
                         <p>
                             <img src="images/ag-scheduled-warmup.png">
                         </p>
-                        <p>혹은, 매일 Peak 시작전에 사전 Warm-Up에 이용</p>
+                        <p>または, 毎日Peak開始前に事前Warm-Upで利用</p>
                     </section>
                 </section>
 
@@ -438,9 +394,9 @@
                     </section>
                     <section>
                         <ul>
-                            <li>적절한 Instance Type을 사용</li>
-                            <li>같은 EC2 사용에서도 성능:비용을 고려</li>
-                            <li>AutoScaling을 통한 적극적인 Spot-Instance 사용</li>
+                            <li>適切なInstance Typeを利用</li>
+                            <li>同じEC2の利用でもコストパフォマンスを考慮</li>
+                            <li>AutoScalingを通じた積極的にSpot-Instanceを使用</li>
                         </ul>
                         <h2></h2>
                     </section>
@@ -455,6 +411,66 @@
                     </p>
                 </section>
 
+                <section>
+                    <section>
+                        <p>Backup Slides</p>
+                    </section>
+                    <section>
+                        <h2>적절한 규모의 자원을 이용한다</h2>
+                        <p>
+                        EC2 Instance들의 가격폭은 <em>800</em>배</p>
+                        <p>
+                        적절한 Instance Type을 선택하는 것이 매우 중요.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>
+                            Class (t,m,c,g,r,i,d) 특성 차이
+                        </h2>
+                        <p>
+                            웹서버와, Cache 서버, DB서버에 적절한 인스턴스가 다름
+                        </p>
+                        <p>
+                            가급적 항상 최신 세대를 사용하는게 가격:성능에 유리
+                        </p>
+                        <p>
+                        단, <em>C3/C4, M3/M4</em>의 경우 한가지 추가 고려 사항
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Instance-Storage vs EBS</h2>
+                        <p>
+                        C/M의 경우 3세대까지는 Instance-Storage가 <br />제공되지만,
+                        4세대 부터는 EBS만 제공됨
+                        </p>
+                        <p>
+                           3세대에 제공되는 Instance-Storage는 1~2개의 <em>SSD</em>
+                        </p>
+                    </section>
+                    <section>
+                        <p>Instance-Storage는 EBS 대비 <a href="https://gist.github.com/ktheory/3c3616fca42a3716346b"><em>7~10</em>배의 성능 우수</a></p>
+                        <p>영속성이 없는 대신 성능과 비용이 우수</p>
+                        <p>복제등으로 보완할 수 있는 경우, <br />I/O 성능이 중요하다면 3세대 사용 고려</p>
+                    </section>
+                    <section>
+                        <p><img data-src="images/cpu_spike.png" /></p>
+                    </section>
+                    <section>
+                        <h2>T2 Instance</h2>
+                        <p>
+                            <em>Burst</em>가 없거나, 혹은 예측가능하게 있는 서비스에 적용
+                            <p>CloudWatch등을 통한 CPU 사용률의 관측으로 적절한 T2 Instance로 전환시,
+                            <em>2~30%</em>수준의 비용 절감 가능
+                            </p>
+                            <p>특히 <em>M3/M4</em> Instance에 대해 중점 검토</p>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Lambda</h2>
+                        <p>Image Resize, Encoding 같은 작업은 Instance가 항상 대기할 필요가 없는 작업</p>
+                        <p>Lambda는 <em>100ms</em> 단위로 과금하기 때문에 필요시에만 운영하여 비용 대폭 감소</p>
+                    </section>
+                </section>
 			</div>
 		</div>
 
