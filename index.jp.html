@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>韓国ユーザーグループ(AWSKRUG)特別セッション - JAWS DAYS 2016</title>
+
+		<meta name="description" content="How to optimise cost in Startup with Spot Instances?">
+		<meta name="author" content="Minyoung Jeong">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <style>
+            section .chart {
+                background: none !important;
+                border: none !important;
+            }
+
+            section.two-col {
+                -webkit-column-count: 2;
+            }
+        </style>
+
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+                    <h2>韓国ユーザーグループ(AWSKRUG)<br>特別セッション</h2>
+                    <h3>JAWS DAYS 2016</h3>
+                    <ol>
+                      <li>AWS韓国エバによるSeoul Regionアップデート (5分)
+                      <li>AWSKRUGはじめに (10分)
+                      <li>How to optimise cost in Startup with Spot Instances? (35分)
+                    </ol>
+                </section>
+                <section>
+                    <section>
+                        <h2>AWS韓国エバによるSeoul Regionアップデート</h2>
+                        <h3>JAWS DAYS 2016</h3>
+                        <p>
+                            <small>
+                                Channy Yun, AWS Korea Tech Evangelist / 鄭道鉉
+                            </small>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Congraturation!</h2>
+                        <p><a href="#">@awscloud_jp</a> 皆様に支えられて、 AWS 東京リージョンは本日満5歳になりました！これからもAWSをどうぞよろしくお願いします。 <br><img src="https://pbs.twimg.com/media/CciL-wOUcAAezSZ.jpg">
+                        </p>
+                    </section>
+                    <section>
+                        <h2>アジアパシフィック (ソウル)!</h2>
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/F_apldSrV5g" frameborder="0" allowfullscreen></iframe>
+                        <small>AWS Cloud 2016 - 1月7日</small>
+                    </section>
+                    <section>
+                        <h2>2 アベイラビリティーゾーン<br>2 エッジロケーション</h2>
+                        <img src="images/aws-seoul-region-lists.png">
+                    </section>
+                    <section>
+                        <h2>ソウルリージョンの開始前、韓国AWSの顧客は？</h2>
+                        <img data-fragment-index="0" class="fragment" src="https://pbs.twimg.com/media/CciL-wOUcAAezSZ.jpg" width="50%">
+                        <p color="orange" data-fragment-index="1" class="fragment">Minyoungさんが知らせていただきます!</p>
+                    </section>
+                    <section>
+                        <h2>韓国 スタートアップ顧客会社</h2>
+                        <img src="images/aws-seoul-region-customer-startups.png">
+                        <p data-fragment-index="0" class="fragment">迅速なサービスの開発、東京からソウルリージョン移行を検討中...</p>
+                    </section>
+                    <section>
+                        <h2>韓国 ゲーム顧客会社</h2>
+                        <img src="images/aws-seoul-region-customer-game.png">
+                        <p data-fragment-index="0" class="fragment">上位の売上高の10社を使用、モバイルゲームの革新が可能</p>
+                    </section>
+                    <section>
+                        <h2>韓国 エンタープライズ顧客会社</h2>
+                        <img src="images/aws-seoul-region-customer-enterprise.png">
+                        <p data-fragment-index="0" class="fragment">低いネットワークレイテンシ、オンプレミスの移行、Direct Connectを活用</p>
+                    </section>
+                    <section>
+                        <h2>ソウルリージョン活用方法</h2>
+                        <ul>
+                            <li>韓国ユーザー対象サービス
+                            <li>モバイルやメディア関連のテストベッド（高速インターネットの速度）
+                            <li>??
+                            <li>??
+                        </ul>
+                    </section>
+                </section>
+                <section>
+					<h2>AWSKRUGはじめに<br>How to optimise cost in Startup with Spot Instances?</h2>
+					<h3>JAWS DAYS 2016</h3>
+					<p>
+                        <small>
+                            Minyoung Jeong(鄭敏泳) / Dohyun Jung(鄭道鉉)
+                        </small>
+					</p>
+				</section>
+
+                <section>
+                    <section>
+                        <h2>発表者の紹介</h2>
+                    </section>
+                    <section class="two-col">
+                        <div>
+                                <img data-src="images/kkung.png" height="400px" />
+                        </div>
+                        <div>
+                            <ul>
+                                <li><p>Minyoung Jeong(鄭敏泳)</p></li>
+                                <li><p>CTO, The Beatpacking Company</p></li>
+                                <li><p>Founder, AWSKRUG</p></li>
+                                <li><p>AWS Community Hero</p></li>
+                                <li><p>Love <em>Python</em>, <em>Ruby</em></p></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="two-col">
+                        <div>
+                                <img data-src="images/dohyunjung.png" height="400px" />
+                        </div>
+                        <div>
+                            <ul>
+                                <li><p>Dohyun Jung(鄭道鉉)</p></li>
+                                <li><p>Consultant, Mamezou</p></li>
+                                <li><p>Host, iamprogrammer podcast</p></li>
+                                <li><p>Staff, AWS Korea Community</p></li>
+                                <li><p>Love <em>Cloud computing</em>, <em>Data science</em></p></li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>本日のアゼンダ</h2>
+                    </section>
+                    <section>
+                        <p>韓国AWSユーザグループのご紹介</p>
+                        <p>韓国からのTokyo Region利用について</p>
+                        <p>どうすればもっと安価で利用できるのか？</p>
+                    </section>
+                </section>
+
+				<section>
+                    <section>
+                        <h2>アマゾンウェブサービス　韓国ユーザ会</h2>
+                        <h3>AWSKRUG</h3>
+                    </section>
+                    <section>
+                        <p>
+                            Tokyo Region 設立後、韓国からもAWSについて関心が
+                            高まり始め、 <em>2011年 11月</em> IRCから活動開始
+                        </p>
+                        <p>
+                            <em>2012年 2月</em>フェースグックグループを開設後、
+                            2016年3月現在、およそ <em>6,700</em>人の会員が活動中
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <em>2015年 11月</em> Seoul Region ランチングで盛り上がり中！
+                        </p>
+                    </section>
+                    <section>
+                        <h2>重要活動</h2>
+                    </section>
+                    <section>
+                        <h2>セミナー開催</h2>
+                        <p>re:Invent reCap</p>
+                        <p>年 3~4回に会員発表セミナー開催</p>
+                        <p><a href="http://www.slideshare.net/awskr">AWSKRUG Slideshare</a></p>
+                        </ul>
+                    </section>
+                    <section data-background="images/awskrug-slides.jpg"></section>
+                    <section>
+                        <h2>勉強会サポート</h2>
+                        <p>AWSに関心が高まり入門者急上昇中！</p>
+                        <p>主に入門者向けの勉強家を開き、AWSクレジットなどをサポート</p>
+                    </section>
+                    <section>
+                        <h2>DevDay</h2>
+                        <p>AWS Koreaと一緒に開く技術セミナー</p>
+                        <p>AWS 新製品紹介、ベスト・プラクティスの紹介など</p>
+                    </section>
+                    <section>
+                        <h2><a href="http://awskr.org">awskr.org</a></h2>
+                    </section>
+				</section>
+
+                <section>
+                    <section>
+                        <h2>BEAT</h2>
+                    </section>
+                    <section>
+                        <h2>Ad-Supported Radio</h2>
+                        <p><em>韓国最初</em></p>
+                        <p>2014年4月 Tokyo Regionからロンチング </p>
+                        <p>660万加入者, MAU 200万</p>
+                        <p><em>Series B</em></p>
+                    </section>
+                    <section data-background="images/beat_growth.jpg" data-background-size="contain"></section>
+                    <section>
+                        <p>残念ながらまだ日本ではサービスしていませんT_T</p>
+                    </section>
+                    <section>
+                        <h3>ここで一問一答</h3>
+                        <p>なぜ日本を選択したのか?</p>
+                    </section>
+                    <section>
+                        <p><em>AWSを使いたい! </em></p>
+                        <p class="fragment">
+                            当時の韓国はCo-location基盤のサービスがほとんど
+                        </p>
+                        <p class="fragment">
+                            <em>API</em>を用いた自動化された管理といろんなサービを欲しがっていたから
+                        </p>
+                    </section>
+                    <section>
+                        <h3>ここで一問一答</h3>
+                        <p>Tokyo Regionでサービスするは問題なかったのか？</p>
+                    </section>
+                    <section>
+                        <p>一般的に、韓国<->日本 Latencyは <em>50~80</em>ms 程度</p>
+                        <p>普通のMobile Appで許容可能なLatency</p>
+                        <p>より良いUXのため、<em>HTTP KeepAlive</em>, <em>GZip</em>などを 活用</p>
+                    </section>
+                    <section>
+                        <p>
+                            <img data-src="images/announce_cf_edge.png" /> <br />
+                            <em>2015. 01. 26</em> CloudFront Edge Launch
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Cloudfrontの積極的な活用</h3>
+                        <p>Static resouce以外にも必要時APIもCloudfrontを通じて提供</p>
+                        <p>Cloudfront &amp; S3を通じて管理されるNetworkにてコンテンツを転送</p>
+                    </section>
+                    <section>
+                        <p><img data-src="images/alias.png" /></p>
+                        <p>Cloudfront edgeはソウルにありますが、Route53 edgeはない</p>
+                        <p>CNAMEの代わりに<em>ALIAS</em>を活用</p>
+                    </section>
+                    <section>
+                        <p>しかし…</p>
+                        <p class="fragment">日本はグローバルサービス(Twitter, Facebookなど)の 韓国サービスの拠点</p>
+                        <p class="fragment">ピークタイム(PM 10~AM 01)の海底ケーブル帯域幅の問題</p>
+                    </section>
+                    <section data-background="images/submarine_cable_map.png"></section>
+                    <section>
+                        <p>幸いにも、AWSKRが韓国ISPたちと協力しネットワーク経路を管理</p>
+                        <p>2016年現在、かなりうまく管理されている</p>
+                    </section>
+                    <section>
+                        <h3>ここで一問一答</h3>
+                        <p>Seoul Regionを利用する計画がありますか?</p>
+                    </section>
+                    <section>
+                        <p>韓国国内でSeoul Regionに対しるLatencyは<em>&lt;10ms</em></p>
+                        <p><em>ap-northeast-1 <-> ap-northeast-2</em>で管理されるネットワーク</p>
+                    </section>
+                    <section>
+                        <p>BEATでは必須のサービス一部が準備中</p>
+                        <p>特に<em>Spot Instance</em>が不在</p>
+                    </section>
+                    <section>
+                        <p>Tokyoと平行して使う予定</p>
+                        <p>一部の<em>API</em>、<em>Cache</em>などの機能を拡張する予定</p>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>BEATが考えたAWS利用の原則</h2>
+                    <h3>適切な規模のリソースを利用する</h3>
+                    <h3><span class="fragment highlight-green">必要最低限</span>のリソースのみ利用する</h3>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>必要最低限のリソースのみ利用する。</h2>
+                    </section>
+                    <section data-background="images/traffics.png"></section>
+                    <section>
+                        <h2>AutoScale + Spot Instance</h2>
+                        <em>EC2コストダウンの切り札</em>
+                    </section>
+                    <section>
+                        <h2>Spot Instance</h2>
+                        <p>
+                            <img src="images/describe-spot-instance.png" width="380px" height="300px" />
+                        </p>
+                        <p>
+                            EC2の<em>遊休資源</em>をAvailability Zoneことの<strong>オークション</strong>を通じて利用
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <em>オークション</em>を通じて利用するため、<br />インスタンスのライフサイクルを
+                            任意で統制できない
+                        </p>
+                        <p>
+                            ただし、On-Demand対比最大<em>90%</em>水準まで安価で利用可能
+                        </p>
+                    </section>
+                    <section>
+                        <h2>入札(Bid)戦力</h2>
+                        <p>どう入札すれば一番効率的なのか？</p>
+                    </section>
+                    <section>
+                        <p>
+                            <img src="images/spot-instance-diff-az.png" />
+                        </p>
+                        <p><em>Availability Zone</em>ごとに値段が異なる</p>
+                    </section>
+                    <section>
+                        <p><img src="images/spot-instance-frequency.png"></p>
+                        <p><em>Instance Type</em>ごとに値段が異なる</p>
+                    </section>
+                    <section>
+                        <p>특히, <em>ap-northeast-1</em>でどう入札すればいいのか？ </p>
+                    </section>
+                    <section>
+                        <p><img src="images/spot-instance-ph-1m.png"></p>
+                        <p>特定Spikeを除いたらOn-Demandより安価で利用できる</p>
+                    </section>
+                    <section>
+                        <p><em>BEAT</em>では、On-Demand価格の<strong>100%</strong>で入札</p>
+                        <p>入札価は最高価格なので、その時点の最低価で落札</p>
+                    </section>
+                    <section>
+                        <p>公開したくないけと…(^^)</p>
+                        <p>実はTokyoリージョンの<em>Spot Instance</em>は競争が激しくない</p>
+                        <p>今までは活用の幅がかなり広い</p>
+                    </section>
+
+                    <section>
+                        <h2>Spotがなかったら？</h2>
+                        <p>競売の価格が高すぎるか、遊休資源がない場合<br />Spot Instanceの確保ができない</p>
+                        <p>安定的なサービス運営のためにこの場合どうすればよいのか?</p>
+                    </section>
+                    <section>
+                        <h2>AutoScale + Spot Instance</h2>
+                    </section>
+                    <section>
+                        <p>
+                            一つのELBに２個のAutoscale groupを運営
+                        </p>
+                        <p>
+                            各グループはOn-Demand(RI)とSpot Instanceで設定される
+                        </p>
+                        <p>
+                            <em>CPU</em>または<em>Latency</em>を基準にてScale In/Out
+                        </p>
+                    </section>
+                    <section data-background="images/beat-ag.png" data-background-size="contain"></section>
+                    <section>
+                        <p>
+                            <em>On-Demand</em> Groupは早いScale-In、遅いScale-Out
+                        </p>
+                        <p>
+                            <em>Spot</em> Groupは早いScale-Out、遅いScale-In
+                        </p>
+                    </section>
+                    <section>
+                        <h3>CPU 基準</h3>
+                        <table>
+                            <thead>
+                                <th></th>
+                                <th>Scale-In</th>
+                                <th>Scale-Out</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Spot</td>
+                                    <td>20%/1hr</td>
+                                    <td>40%/5min</td>
+                                </tr>
+                                <tr>
+                                    <td>On-Demand</td>
+                                    <td>40%/10min</td>
+                                    <td>80%/5min</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="images/ag-chart-1.png" />
+                        </p>
+                        <p>
+                            時間帯別Traffic
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="images/ag-chart-2.png" />
+                        </p>
+                        <p>
+                            Traffic最低点対比5~10%程をOn-Deamnd
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="images/ag-chart-3.png" />
+                        </p>
+                        <p>
+                            他の部分を5~10%程度余裕でSpot Instance
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="images/ag-chart-4.png" />
+                        </p>
+                        <p>
+                            もし、必要な分のSpot Instanceの確保が出来なかった場合
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            <img class="chart" data-src="images/ag-chart-5.png" />
+                        </p>
+                        <p>
+                            Scaling PolicyによってOn-DeamndがScale-Out
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Scheduled Policy</h2>
+                        <p>
+                        サービスTraffic patternによって、<br />時間帯別にMinimumを調整
+                        </p>
+                    </section>
+                    <section>
+                        <p>Peak時間帯のSpot: 40~ On-Deamdn: 10~</p>
+                        <p>Off時間帯のSpot: 10~ On-Deamnd: 2~</p>
+                    </section>
+                    <section>
+                        <p>
+                            <img src="images/ag-scheduled-warmup.png">
+                        </p>
+                        <p>または, 毎日Peak開始前に事前Warm-Upで利用</p>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2>Wrap Up</h2>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>適切なInstance Typeを利用</li>
+                            <li>同じEC2の利用でもコストパフォマンスを考慮</li>
+                            <li>AutoScalingを通じた積極的にSpot-Instanceを使用</li>
+                        </ul>
+                        <h2></h2>
+                    </section>
+                </section>
+
+                <section style="text-align:left;">
+                    <h2>ありがとうございます!</h2>
+                    <p>
+                        - Q&A <br />
+                        - <a href="http://awskr.org">AWSKRUG</a> <br />
+                        - kkungkkung @ gmail.com
+                    </p>
+                </section>
+
+                <section>
+                    <section>
+                        <p>Backup Slides</p>
+                    </section>
+										<section>
+												<h2>適切か規模のリソースを利用する</h2>
+												<p>
+												EC2 インスタンスの値段の差は<em>800</em>倍</p>
+												<p>
+												適切なインスタンス Typeを選択することがすごく大事
+												</p>
+										</section>
+										<section>
+												<h2>
+														Class (t,m,c,g,r,i,d) の特性
+												</h2>
+												<p>
+														ウェブサーバ、Cacheサーバ、DBサーバに対し、異なるインスタンスタイプが必要
+												</p>
+												<p>
+														できれば、最新のインスタンスタイプを使うのがコストパフォマンスに有利
+												</p>
+												<p>
+												ただし、<em>C3/C4, M3/M4</em>の場合、もう一つの追加考慮事項が存在する
+												</p>
+										</section>
+										<section>
+												<h2>Instance-Storage vs EBS</h2>
+												<p>
+												C/Mの場合、第３世代まではInstance-Storageが<br />提供されるが、
+												第４世代からはEBSだけ提供される
+												</p>
+												<p>
+													 第３世帯に提供されるInstance-Storageは1~2個の<em>SSD</em>
+												</p>
+										</section>
+										<section>
+												<p>Instance-StorageはEBS対比<a href="https://gist.github.com/ktheory/3c3616fca42a3716346b"><em>7~10</em>倍の性能</a></p>
+												<p>永続性がない代わりに性能と費用が抜群</p>
+												<p>データ複製などで永続性の問題を補完できる場合、<br />I/O性能が大事であれば第３世代の使用を考慮する必要がある</p>
+										</section>
+										<section>
+												<p><img data-src="images/cpu_spike.png" /></p>
+										</section>
+										<section>
+												<h2>T2インスタンス</h2>
+												<p>
+														<em>Burst</em>がない、または予測可能なサービスに適用
+														<p>CloudWatchなどを通じたCPU使用率モニタリングで適切なT2インスタンスへの転換を実施し、
+														<em>2~30%</em>程度のコストダウンが可能
+														</p>
+														<p>特に<em>M3/M4</em>インスタンスに対して重点的に検討</p>
+												</p>
+										</section>
+										<section>
+												<h2>Lambda</h2>
+												<p>Image Resize, Encodingのような作業はインスタンスが通常待機する必要がない作業</p>
+												<p>Lambdaは<em>100ms</em>単位で課金するため必要時のみ運用すれば大幅のコストダウンが可能</p>
+										</section>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+</html>
